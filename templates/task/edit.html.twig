@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Tache{% endblock %}
+
+{% block body %}
+    <h1>Modifier la tâche:</h1>
+        {{ form_start(form) }}
+        {{ form_row(form.title) }}
+        {{ form_row(form.description) }}
+        {# {{ form_row(form.is_done) }} #}
+        <button>{{button_label|default ("Modifier")}}</button>
+      {{ form_end(form) }}
+{% endblock %}
