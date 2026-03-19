@@ -21,10 +21,13 @@ class Task
     private ?string $description = null;
 
     #[ORM\Column]
-    private ?bool $isDone = null;
+    private ?bool $is_done = null;
 
     #[ORM\Column(length: 10, nullable: true)]
     private ?string $status = null;
+
+    #[ORM\Column(length: 3)]
+    private ?string $progrssion = null;
 
 
     public function getId(): ?int
@@ -56,14 +59,14 @@ class Task
         return $this;
     }
 
-    public function isDone(): ?bool
+    public function IsDone(): ?bool
     {
-        return $this->isDone;
+        return $this->is_done;
     }
 
-    public function setIsDone(bool $isDone): static
+    public function setIsDone(bool $is_done): static
     {
-        $this->isDone = $isDone;
+        $this->is_done = $is_done;
 
         return $this;
     }
@@ -76,6 +79,18 @@ class Task
     public function setStatus(?string $status): static
     {
         $this->status = $status;
+
+        return $this;
+    }
+
+    public function getProgrssion(): ?string
+    {
+        return $this->progrssion;
+    }
+
+    public function setProgrssion(string $progrssion): static
+    {
+        $this->progrssion = $progrssion;
 
         return $this;
     }

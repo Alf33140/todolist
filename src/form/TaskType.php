@@ -13,7 +13,7 @@ public function buildForm(FormBuilderInterface $builder, array $options){
     $builder
     ->add('title')
     ->add('description')
-    ->add('is_Done')
+    ->add('is_done')
 ;
 
 }
