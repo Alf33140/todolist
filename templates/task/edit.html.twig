@@ -3,11 +3,27 @@
 {% block title %}Nouvelle Tache{% endblock %}
 
 {% block body %}
-    <h1>Modifier la tâche:</h1>
-        {{ form_start(form) }}
-        {{ form_row(form.title) }}
-        {{ form_row(form.description) }}
-        {# {{ form_row(form.is_done) }} #}
-        <button>{{button_label|default ("Modifier")}}</button>
-      {{ form_end(form) }}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-4 text-center">
+            <h1>Modifier la tâche:</h1>
+        
+                {{ form_start(form) }}
+                    <div class='mt-3 mb-3'>
+                    {{ form_widget(form.title, {'attr': {'class': 'form-control form mt3', 'placeholder':'title'}}) }}
+                    </div>
+                    <div class='mt-3 mb-3'>
+                    {{ form_widget(form.description, {'attr': {'class': 'form-control form mt3', 'placeholder':'description'}}) }}
+                    </div>
+                    <div class='mt-3 mb-3'>
+                    {{ form_row(form.is_Done) }}
+                    </div>
+                <button class="btn btn-warning mb-2">{{button_label|default ("Modifier")}}</button>
+            {{ form_end(form) }}
+            <div>
+                <a href="{{path('app_task_index')}}" class="btn btn-secondary">Revenir a la liste</a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

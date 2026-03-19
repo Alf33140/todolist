@@ -31,7 +31,6 @@ final class TaskController extends AbstractController
         $form->handleRequest($request);
 
       
-
         if ($form->isSubmitted() && $form->isValid()) {
         
         $entityManagerInterface->persist($task);
@@ -39,8 +38,8 @@ final class TaskController extends AbstractController
         
         // $this->addFlash('success','une nouvelle tâche a été ajoutée avec succès');
     }
-        return $this->render('task/index.html.twig',[
-        'task' => $task,
+        return $this->render('task/new.html.twig',[
+        // 'tasks' => $task,
         'form' => $form
             
         ]);

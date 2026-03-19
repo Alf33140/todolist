@@ -23,6 +23,10 @@ class Task
     #[ORM\Column]
     private ?bool $isDone = null;
 
+    #[ORM\Column(length: 10, nullable: true)]
+    private ?string $status = null;
+
+
     public function getId(): ?int
     {
         return $this->id;
@@ -63,4 +67,18 @@ class Task
 
         return $this;
     }
+
+    public function getStatus(): ?string
+    {
+        return $this->status;
+    }
+
+    public function setStatus(?string $status): static
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    
 }
