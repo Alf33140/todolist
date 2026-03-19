@@ -38,21 +38,28 @@
                                     {% endif %}
                                 </td>
                                 <td>
-                                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                                        <div class="progress-bar" style="width: 0%"></div>
+
+                                    {% if task.progression <= 25 %}
+                                        <div class="progress" role="progressbar" aria-valuenow="{{ task.progression }}" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar bg-danger" style="width: {{ task.progression }}%"></div>
                                         </div>
-                                            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="pprogress-bar bg-danger" style="width: 25%"></div>
+                                    {% elseif task.progression > 25 and task.progression <= 50 %}
+                                        <div class="progress" role="progressbar" aria-valuenow="{{ task.progression }}" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar bg-warning" style="width: {{ task.progression }}%"></div>
                                         </div>
-                                            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress-bar bg-warning" style="width: 50%"></div>
+                                    {% elseif task.progression > 50 and task.progression <= 75 %}
+                                        <div class="progress" role="progressbar" aria-valuenow="{{ task.progression }}" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar bg-info" style="width: {{ task.progression }}%"></div>
                                         </div>
-                                            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress-bar bg-info" style="width: 75%"></div>
+                                    {% elseif task.progression > 75 and task.progression <= 99 %}
+                                        <div class="progress" role="progressbar" aria-valuenow="{{ task.progression }}" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar bg-primary" style="width: {{ task.progression }}%"></div>
                                         </div>
-                                            <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                    {% else %}
+                                        <div class="progress" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                                             <div class="progress-bar bg-success" style="width: 100%"></div>
-                                    </div>
+                                        </div>
+                                    {% endif %}
                                 </td>
                                 <td><a href="{{path('app_edit_task',{'id': task.id})}}" class="btn btn-primary">modifier une tâche</a></td>
                             </tr>            

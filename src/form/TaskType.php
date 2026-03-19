@@ -14,6 +14,7 @@ public function buildForm(FormBuilderInterface $builder, array $options){
     ->add('title')
     ->add('description')
     ->add('is_done')
+    ->add('progression')
 ;
 
 }

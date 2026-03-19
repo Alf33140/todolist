@@ -27,7 +27,7 @@ class Task
     private ?string $status = null;
 
     #[ORM\Column(length: 3)]
-    private ?string $progrssion = null;
+    private ?string $progression = null;
 
 
     public function getId(): ?int
@@ -83,14 +83,14 @@ class Task
         return $this;
     }
 
-    public function getProgrssion(): ?string
+    public function getProgression(): ?string
     {
-        return $this->progrssion;
+        return $this->progression;
     }
 
-    public function setProgrssion(string $progrssion): static
+    public function setProgression(string $progression): static
     {
-        $this->progrssion = $progrssion;
+        $this->progression = $progression;
 
         return $this;
     }
